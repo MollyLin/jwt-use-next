@@ -2,6 +2,11 @@ import Link from 'next/link';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { grey } from '@mui/material/colors';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +27,7 @@ export default function RootLayout({
         <div className="container mx-auto flex max-w-7xl items-center justify-end p-4 md:px-6">
           <div className="items-center space-x-4 md:flex">
             <Link
-              className="rounded-md border px-4 py-1.5 text-sm font-medium transition-colors hover:border-black hover:bg-black hover:text-white"
+              className="rounded-md border px-4 py-1.5 text-sm font-medium hover:border-black hover:bg-black hover:text-white"
               href="/login"
             >
               登入
@@ -30,10 +35,23 @@ export default function RootLayout({
           </div>
         </div>
         {/* Main */}
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          {children}
-        </main>
+        {children}
         {/* Footer */}
+        <Box
+          component="footer"
+          sx={{
+            py: 3,
+            px: 2,
+            mt: 8,
+            backgroundColor: grey[800],
+          }}
+        >
+          <Container maxWidth="sm">
+            <Typography variant="body1">
+              My sticky footer can be found here.
+            </Typography>
+          </Container>
+        </Box>
       </body>
     </html>
   );

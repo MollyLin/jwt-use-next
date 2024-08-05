@@ -1,13 +1,21 @@
-import Link from 'next/link';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import { grey } from '@mui/material/colors';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 
 export default function Page() {
   return (
-    <div className="container grid items-center gap-4 px-4 text-center md:px-6 lg:gap-10">
+    <Container component="main" maxWidth="xs">
       <div className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+        <Typography component="h1" variant="h5" align="center" sx={{ mt: 8, color: grey[800] }} gutterBottom>
           JSON Web Tokens
-        </h1>
-        <hr />
+        </Typography>
         <div className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           <p>
             測試項目:
@@ -17,15 +25,68 @@ export default function Page() {
             <li>Database Session</li>
           </ul>
         </div>
+        <hr />
       </div>
-      <div className="flex flex-col justify-center gap-2 min-[400px]:flex-row">
-        <Link
-          className="inline-flex h-10 items-center justify-center rounded-md border text-gray-900 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-          href="/signup"
+      <Box
+        sx={{
+          marginTop: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: grey[500] }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Box component="form" noValidate
+          sx={{
+            marginTop: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
         >
-          我要註冊
-        </Link>
-      </div>
-    </div>
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                color="secondary"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="new-password"
+                color="secondary"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            我要註冊
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link href="/login" variant="body2">
+                已有帳號? 我要登入
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
   );
 }
