@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -23,20 +23,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Navbar */}
-        <div className="container mx-auto flex max-w-7xl items-center justify-end p-4 md:px-6">
-          <div className="items-center space-x-4 md:flex">
-            <Link
-              className="rounded-md border px-4 py-1.5 text-sm font-medium hover:border-black hover:bg-black hover:text-white"
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            mx: 2,
+            my: 2
+          }}>
+            <Button
+              variant="outlined"
               href="/login"
-            >
-              登入
-            </Link>
-          </div>
-        </div>
-        {/* Main */}
+            >登入
+            </Button>
+        </Box>
         {children}
-        {/* Footer */}
         <Box
           component="footer"
           sx={{
