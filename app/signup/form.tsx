@@ -1,5 +1,5 @@
 // invokes server action when submitted
-import { signup } from './actions'; 
+import { signup } from '@/app/signup/actions'; 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
