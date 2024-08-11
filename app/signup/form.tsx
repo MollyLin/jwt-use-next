@@ -5,10 +5,15 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
+import { useActionState } from 'react'; // React 19 RC
 
 export function SignUpForm() {
+  // capture the errors using react's use action state hook
+  // useActionState(fn, initialState, permalink?)
+  const [ state, action ] = useActionState(signup);
+
   return (
-    <form action={(event: any, formData: any) => signup(event, formData)}>
+    <form action={action}>
       <Box
         sx={{
           marginTop: 4,

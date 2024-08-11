@@ -2,7 +2,7 @@
 
 import { SignupFormSchema } from '@/app/_lib/definitions';
 
-export async function signup(state, formData) {
+export async function signup(previousState, formData) {
   // 1. validate incoming fields before any authentication logic
   /**
    * Zod's Schema methods: .safeParse()
